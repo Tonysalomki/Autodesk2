@@ -290,11 +290,25 @@
 .lead-customer svg{width:16px;height:16px;flex:none;fill:none;stroke:#9d9da8;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .lead-customer strong{font-weight:620;color:#d4d4dc;overflow-wrap:anywhere}
 .lead-phone{font-size:11px;color:#92929d;font-variant-numeric:tabular-nums}
+
+/* Account and cloud sync */
+.auth-required #appMain{display:none!important}
+.auth-screen{min-height:100svh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 50% 10%,#202027 0,transparent 48%),var(--bg)}
+.auth-screen[hidden]{display:none}
+.auth-panel{width:min(420px,100%);padding:30px;background:linear-gradient(145deg,#19191d,#111114);border:1px solid #ffffff12;border-radius:26px;box-shadow:var(--shadow)}
+.auth-brand{font-size:23px;font-weight:740;letter-spacing:-.7px;background:linear-gradient(100deg,#f5f5f7 34%,#b7d5ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.auth-panel h1{font-size:24px;margin:22px 0 6px;letter-spacing:-.6px}.auth-help{font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 20px}
+.auth-panel label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}.auth-panel input{width:100%;padding:13px;border:1px solid var(--line);color:var(--ink);border-radius:13px;background:#29292e;margin-bottom:13px}.auth-panel input:focus{border-color:var(--blue);outline:2px solid var(--focus)}
+.auth-panel .primary{width:100%;margin-top:4px}.auth-panel button:disabled{opacity:.55;cursor:wait}.auth-message{min-height:20px;margin:14px 0 0;font-size:12px;line-height:1.5;color:#69d98a}.auth-message.error{color:#ff6961}.auth-reset{display:block;margin:10px auto 0;border:0;background:transparent;color:#8bbfff;font-size:12px;padding:8px}
+.cloud-session{display:flex;align-items:center;gap:9px;margin-left:auto}.cloud-session[hidden]{display:none}.session-email{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:var(--muted)}.session-out{border:1px solid #ffffff12;background:#222227;color:#d7d7dc;border-radius:10px;padding:7px 9px;font-size:11px;font-weight:620}
+@media(max-width:760px){.cloud-session{grid-column:1/-1;grid-row:3;margin:0;justify-content:flex-end}.app-header{row-gap:8px}.session-email{max-width:220px}}
 </style>
+<script src="./supabase-config.js"></script><script>if(location.hostname==="app.salomaki.fi"||(window.SALOMAKI_SUPABASE_CONFIG&&window.SALOMAKI_SUPABASE_CONFIG.url&&window.SALOMAKI_SUPABASE_CONFIG.publishableKey))document.documentElement.classList.add("auth-required");</script>
 </head>
 <body>
-<main>
-<header class="app-header"><div class="brand-block"><div class="brand-word">Salomäki</div><div class="date" id="date"></div></div><nav class="section-switch" aria-label="Paneelin sivut"><button class="section-tab active" data-page="workPage">Work</button><button class="section-tab" data-page="personalPage">Personal</button></nav></header>
+<section class="auth-screen" id="authGate" aria-labelledby="authTitle" hidden><div class="auth-panel"><div class="auth-brand">Salomäki</div><h1 id="authTitle">Kirjaudu sisään</h1><p class="auth-help">Paneelin tiedot näkyvät vain omalla käyttäjätililläsi.</p><form id="authForm"><label for="authEmail">Sähköposti</label><input id="authEmail" name="email" type="email" autocomplete="username" required><label for="authPassword">Salasana</label><input id="authPassword" name="password" type="password" autocomplete="current-password" required><button class="primary" type="submit">Kirjaudu sisään</button></form><button class="auth-reset" id="authReset" type="button">Unohditko salasanan?</button><p class="auth-message" id="authMessage" role="status" aria-live="polite"></p></div></section>
+<main id="appMain">
+<header class="app-header"><div class="brand-block"><div class="brand-word">Salomäki</div><div class="date" id="date"></div></div><nav class="section-switch" aria-label="Paneelin sivut"><button class="section-tab active" data-page="workPage">Work</button><button class="section-tab" data-page="personalPage">Personal</button></nav><div class="cloud-session" id="cloudSession" hidden><span class="session-email" id="sessionLabel"></span><button class="session-out" id="signOut" type="button">Kirjaudu ulos</button></div></header>
 <div class="page active" id="workPage">
 <div class="work-top-grid">
 <section class="card tasks-card"><div class="cardhead"><div class="title"><span class="section-icon task-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"></rect><path d="m8 12 2.7 2.7L16.5 9"></path></svg></span>Tehtävät</div><button class="link" onclick="openTask()">＋ Lisää</button></div><div id="tasks"></div></section>
@@ -378,4 +392,5 @@ function renderComplaints(){const openCount=complaintItems.filter(item=>item.sta
 document.addEventListener('keydown',event=>{if(event.key==='Enter'&&complaintModal.classList.contains('open'))saveComplaint()});
 renderComplaints();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./cloud.js"></script>
 </body></html>
