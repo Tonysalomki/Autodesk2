@@ -130,6 +130,45 @@
 @media(max-width:960px){.lead-columns{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.lead-columns{grid-template-columns:1fr}.channel-panel{padding:14px}}
 @media(max-width:520px){.overview-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.overview-stat{padding:8px 6px;gap:6px}.overview-stat small{font-size:9px}.overview-stat strong{font-size:14px}.overview-icon{width:31px;height:31px}.channel-head h3{font-size:15px}}
+
+/* Tiivis päivän tilanne ja suuret liidikanavat */
+.work-overview{width:min(100%,250px);aspect-ratio:1;padding:17px;display:flex;flex-direction:column;justify-content:space-between;margin:0 0 16px}
+.work-overview .overview-top{align-items:flex-start;gap:10px}
+.work-overview .overview-title{align-items:flex-start;gap:9px}
+.work-overview .overview-title h2{font-size:15px}
+.work-overview .overview-title p{font-size:11px;line-height:1.35}
+.work-overview .overview-score{flex:none;gap:3px}
+.work-overview .overview-score strong{font-size:18px}
+.work-overview .overview-score span{font-size:10px}
+.work-overview .bar{margin-top:10px}
+.work-overview .overview-stats{grid-template-columns:1fr;gap:6px;margin-top:10px}
+.work-overview .overview-stat{padding:6px 8px;gap:8px;border-radius:11px}
+.work-overview .summary-icon{width:25px;height:25px;border-radius:8px}
+.work-overview .summary-icon svg{width:15px;height:15px}
+.work-overview .overview-stat strong{font-size:14px}
+.work-overview .overview-stat small{font-size:10px}
+.lead-columns{gap:15px;margin-bottom:18px}
+.channel-panel{padding:21px;border-radius:23px}
+.channel-head{padding-bottom:15px;margin-bottom:14px}
+.channel-head h3{font-size:18px}
+.channel-symbol{width:36px;height:36px;border-radius:12px}
+.channel-symbol svg{width:20px;height:20px}
+.channel-add{width:34px;height:34px;border-radius:11px}
+.lead-lanes{gap:12px}
+.lead-lane{padding:13px 14px;border-radius:15px}
+.lead-lane-head{font-size:12px;margin-bottom:10px}
+.lane-icon{width:23px;height:23px;border-radius:8px}
+.lane-icon svg{width:15px;height:15px}
+.lead-card{padding:12px;border-radius:13px}
+.lead-card-title{font-size:13px}
+.lead-card-meta{font-size:11px;margin-top:5px}
+.lead-sale-chip{font-size:10px}
+.lead-card-controls{margin-top:9px}
+.lead-stage-select{padding:8px;font-size:11px}
+.lead-card-remove{height:32px}
+.lead-empty{font-size:11px;padding:7px 0}
+@media(max-width:760px){.work-overview{width:min(100%,250px);margin-bottom:14px}.channel-panel{padding:18px}.lead-columns{gap:12px}}
+@media(max-width:520px){.work-overview{width:min(100%,250px);padding:16px}.channel-panel{padding:17px}.lead-lane{padding:11px 12px}}
 </style>
 </head>
 <body>
