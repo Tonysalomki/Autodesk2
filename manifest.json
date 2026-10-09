@@ -1,0 +1,13 @@
+{
+  "id": "./",
+  "name": "AutoDesk — Myyntipäivä",
+  "short_name": "AutoDesk",
+  "description": "Automyyjän tehtävät, asiakkaat, koeajot ja follow-upit yhdessä näkymässä.",
+  "lang": "fi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f5f7",
+  "theme_color": "#f5f5f7",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
