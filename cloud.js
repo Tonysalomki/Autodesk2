@@ -34,6 +34,13 @@
   function showMessage(text, error = false) {
     message.textContent = text;
     message.classList.toggle("error", error);
+    const status = document.getElementById("cloudStatus");
+    if (status) {
+      status.textContent = error ? "Tallennusvirhe" :
+        /tallennettu|synkronoitu|päivitettiin/i.test(text) ? "Synkronoitu" : "Synkronoidaan…";
+      status.classList.toggle("error", error);
+      status.title = error ? text : "Tiedot tallentuvat pilveen";
+    }
   }
   function showGate() {
     document.documentElement.classList.add("auth-required");
