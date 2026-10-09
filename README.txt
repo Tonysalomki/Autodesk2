@@ -1,6 +1,6 @@
-AUTODESK — MYYNTIPÄIVÄ
+SALOMÄKI — MYYNTI JA ARKI
 
-Pohja toimii ilman kirjautumista. Asiakkaat ja tehtävät tallentuvat käytetyn selaimen paikalliseen tallennustilaan.
+Paneelissa on erilliset näkymät automyyntiin ja henkilökohtaisen talouden seurantaan. Asiakkaat, tehtävät ja taloustiedot tallentuvat käytetyn selaimen paikalliseen tallennustilaan.
 
 KÄYTTÖ
 1. Pura ZIP omalle koneelle.
@@ -11,5 +11,5 @@ KÄYTTÖ
 TÄRKEÄÄ
 - Tiedot eivät vielä synkronoidu iPhonen ja Macin välillä. Jokaisella laitteella on oma paikallinen tallennus.
 - Pilvisynkronointi vaatii seuraavan vaiheen: käyttäjätilit ja tietokanta/palvelu.
-- Älä säilytä tässä versiossa arkaluonteisia henkilötietoja tai asiakkaiden tietoja ennen synkronoinnin ja tietosuojan toteutusta.
+- Sovelluksessa ei vielä ole kirjautumista tai pilvisynkronointia. Älä tallenna pankkitunnuksia, maksukorttitietoja tai arkaluonteisia asiakkaiden tietoja.
 - Offline-käyttö PWA-asennuksen jälkeen toimii Service Worker -välimuistin ja selaimen paikallisen tallennuksen avulla.
