@@ -32,3 +32,17 @@ drop policy if exists "Users can delete their own documents" on public.user_docu
 create policy "Users can delete their own documents"
   on public.user_documents for delete to authenticated
   using ((select auth.uid()) = user_id);
+
+-- Enable live updates between devices (skip if already included).
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'user_documents'
+  ) then
+    alter publication supabase_realtime add table public.user_documents;
+  end if;
+end
+$$;
