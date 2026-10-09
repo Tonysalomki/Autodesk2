@@ -1,6 +1,6 @@
 // Salomäki Supabase public client settings.
-// Fill these in after creating the Supabase project. Never put a service_role/secret key here.
+// This publishable key is designed for browser use. Database access is restricted by RLS.
 window.SALOMAKI_SUPABASE_CONFIG = {
-  url: "",
-  publishableKey: ""
+  url: "https://hmtrdhnondscapixsfpe.supabase.co",
+  publishableKey: "sb_publishable_GoWQhs7oMCpk39I-kNHjwQ_NMRZ6Rxa"
 };
